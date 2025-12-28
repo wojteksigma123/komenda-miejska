@@ -3,263 +3,144 @@
 <head>
 <meta charset="UTF-8" />
 <title>System Policji RP – Roblox</title>
-
 <style>
-:root{
-  --bg:#020617;
-  --panel:#0b1220;
-  --panel2:#0f172a;
-  --blue:#2563eb;
-  --red:#dc2626;
-  --gold:#facc15;
-  --text:#e5e7eb;
-  --muted:#94a3b8;
-}
+:root{--bg:#020617;--panel:#0b1220;--panel2:#0f172a;--blue:#2563eb;--red:#dc2626;--gold:#facc15;--text:#e5e7eb;--muted:#94a3b8;}
 *{box-sizing:border-box}
-
-body{
-  margin:0;
-  min-height:100vh;
-  font-family:Segoe UI,system-ui;
-  background:radial-gradient(circle at top,#020617,#000);
-  color:var(--text);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow:hidden;
-}
-
-body::before{
-  content:"";
-  position:fixed;
-  inset:-20%;
-  background:
-    radial-gradient(circle at 20% 30%,rgba(37,99,235,.18),transparent 40%),
-    radial-gradient(circle at 80% 70%,rgba(250,204,21,.15),transparent 40%),
-    radial-gradient(circle at 50% 90%,rgba(220,38,38,.15),transparent 45%);
-  filter:blur(70px);
-  z-index:-2;
-}
-
-.decor{
-  position:fixed;
-  top:0;bottom:0;
-  width:140px;
-  background:linear-gradient(180deg,rgba(37,99,235,.18),rgba(15,23,42,.05));
-  z-index:-1;
-}
+body{margin:0;min-height:100vh;font-family:Segoe UI,system-ui;background:radial-gradient(circle at top,#020617,#000);color:var(--text);display:flex;justify-content:center;align-items:center;overflow:hidden}
+body::before{content:"";position:fixed;inset:-20%;background:radial-gradient(circle at 20% 30%,rgba(37,99,235,.15),transparent 40%),radial-gradient(circle at 80% 70%,rgba(250,204,21,.12),transparent 40%),radial-gradient(circle at 50% 90%,rgba(220,38,38,.12),transparent 45%);filter:blur(60px);z-index:-1}
+.decor{position:fixed;top:0;bottom:0;width:140px;background:linear-gradient(180deg,rgba(37,99,235,.18),rgba(15,23,42,.05));z-index:-1;pointer-events:none}
+.decor.right{right:0;left:auto;box-shadow:inset 1px 0 0 #1e293b}
 .decor.left{left:0}
-.decor.right{right:0}
-
-.police-lines{
-  position:fixed;
-  inset:0;
-  background:repeating-linear-gradient(
-    135deg,
-    rgba(37,99,235,.08) 0 14px,
-    transparent 14px 44px
-  );
-  z-index:-3;
-}
-
-.card{
-  width:100%;
-  max-width:760px;
-  padding:36px;
-  border-radius:30px;
-  background:linear-gradient(180deg,var(--panel2),var(--panel));
-  box-shadow:0 40px 100px rgba(0,0,0,.75);
-  position:relative;
-  animation:fade .5s ease;
-}
-
-.card::before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  border-radius:32px;
-  background:linear-gradient(120deg,transparent,rgba(37,99,235,.45),transparent);
-  opacity:.7;
-}
-
-@keyframes fade{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1}
-}
-
+.card{width:100%;max-width:720px;padding:32px;border-radius:28px;background:linear-gradient(180deg,var(--panel2),var(--panel));box-shadow:0 40px 90px rgba(0,0,0,.7);animation:fade .5s ease}
+@keyframes fade{from{opacity:0;transform:translateY(15px)}to{opacity:1}}
 h1,h2{text-align:center;margin-bottom:10px}
-
-.badge{
-  display:inline-block;
-  padding:4px 14px;
-  border-radius:999px;
-  font-size:12px;
-}
-.blue{background:rgba(37,99,235,.25)}
-.red{background:rgba(220,38,38,.25)}
-.gold{background:rgba(250,204,21,.35);color:#000}
-
-input{
-  width:100%;
-  padding:14px;
-  margin-top:10px;
-  border-radius:16px;
-  border:1px solid #1e293b;
-  background:#020617;
-  color:#fff;
-}
-
-button{
-  margin-top:18px;
-  padding:16px;
-  width:100%;
-  border:none;
-  border-radius:18px;
-  font-weight:700;
-  background:linear-gradient(135deg,var(--blue),#1d4ed8);
-  color:white;
-  cursor:pointer;
-}
-
+.badge{padding:4px 12px;border-radius:999px;font-size:12px}
+.blue{background:rgba(37,99,235,.2);color:#bfdbfe}
+.red{background:rgba(220,38,38,.2);color:#fecaca}
+.gold{background:rgba(250,204,21,.25);color:#fde68a}
+.section{margin-top:25px;padding-top:20px;border-top:1px solid #1e293b}
+input,textarea{width:100%;padding:12px;margin-top:6px;border-radius:14px;border:1px solid #1e293b;background:#020617;color:var(--text)}
+button{margin-top:14px;padding:14px;width:100%;border:none;border-radius:16px;font-weight:600;color:#fff;background:linear-gradient(135deg,var(--blue),#1d4ed8);cursor:pointer}
+.list{background:#020617;border:1px solid #1e293b;border-radius:16px;padding:14px;margin-top:10px}
+.fine{border-left:4px solid var(--gold);padding-left:10px;margin-top:6px}
 .hidden{display:none}
-
-.section{
-  margin-top:28px;
-  padding-top:20px;
-  border-top:1px solid #1e293b;
-}
-
-.list{
-  background:#020617;
-  border:1px solid #1e293b;
-  border-radius:18px;
-  padding:14px;
-  margin-top:10px;
-}
-
-.stats{
-  display:flex;
-  gap:12px;
-  margin-top:18px;
-}
-
-.stat{
-  flex:1;
-  background:#020617;
-  border:1px solid #1e293b;
-  border-radius:18px;
-  padding:14px;
-  text-align:center;
-}
+img.skin{width:100%;border-radius:14px;margin-top:10px}
+.stats{display:flex;gap:12px;margin-top:14px}
+.stat{flex:1;background:#020617;border:1px solid #1e293b;border-radius:16px;padding:12px;text-align:center}
+.police-lines{position:fixed;inset:0;background:repeating-linear-gradient(135deg,rgba(37,99,235,.08) 0 14px,transparent 14px 44px);z-index:-3;pointer-events:none}
+.noise{position:fixed;inset:0;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/></filter><rect width="120" height="120" filter="url(%23n)" opacity="0.08"/></svg>');mix-blend-mode:overlay;z-index:-1;pointer-events:none}
+.card::before{content:"";position:absolute;inset:-2px;border-radius:30px;background:linear-gradient(120deg,transparent,rgba(37,99,235,.35),transparent);opacity:.6}
+.card::after{content:"";position:absolute;inset:0;border-radius:28px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04)}
 </style>
 </head>
-
 <body>
 <div class="decor left"></div>
 <div class="decor right"></div>
 <div class="police-lines"></div>
+<div class="noise"></div>
 
-<!-- LOGIN -->
 <div class="card" id="login">
-  <h1>👮 System Policji RP</h1>
-  <input id="loginId" placeholder="Roblox ID">
-  <input id="code" placeholder="Kod dostępu (opcjonalny)">
-  <button onclick="login()">Zaloguj</button>
+<h1>👮 System Policji RP</h1>
+<input id="loginId" placeholder="Roblox ID" />
+<input id="code" placeholder="Kod dostępu (opcjonalny)" />
+<button onclick="login()">Zaloguj</button>
 </div>
 
-<!-- OBYWATEL -->
 <div class="card hidden" id="citizen">
-  <h2>👤 Panel Obywatela</h2>
-  <span class="badge blue">Publiczny</span>
-  <div class="section" id="citizenData"></div>
+<h2>👤 Panel Obywatela</h2><span class="badge blue">Publiczny</span>
+<div class="section">
+<input id="cName" placeholder="Imię i nazwisko RP" />
+<input id="cSkin" placeholder="URL skina" />
+<button onclick="saveCitizen()">Zapisz dane</button>
+</div>
+<div class="section"><div id="citizenData" class="list"></div></div>
 </div>
 
-<!-- POLICJA -->
 <div class="card hidden" id="police">
-  <h2>🚔 Panel Policji</h2>
-  <span class="badge red">Funkcjonariusz</span>
-
-  <div class="stats">
-    <div class="stat" id="pCit">Obywatele: 0</div>
-    <div class="stat" id="pFine">Mandaty: 0</div>
-  </div>
-
-  <div class="section">
-    <input id="pSearch" placeholder="Roblox ID">
-    <button onclick="search()">Szukaj obywatela</button>
-    <div id="pResult" class="list"></div>
-  </div>
-
-  <div class="section">
-    <input id="fId" placeholder="Roblox ID">
-    <input id="fAmount" placeholder="Kwota mandatu">
-    <input id="fPoints" placeholder="Punkty karne">
-    <input id="fReason" placeholder="Powód">
-    <button onclick="addFine()">Wystaw mandat</button>
-  </div>
+<h2>🚔 Panel Policji</h2><span class="badge red">Funkcjonariusz</span>
+<div class="stats">
+<div class="stat" id="pCit">Obywatele: 0</div>
+<div class="stat" id="pFine">Mandaty: 0</div>
+</div>
+<div class="section">
+<input id="pSearch" placeholder="Roblox ID" />
+<button onclick="search()">Szukaj</button>
+<div id="pResult" class="list"></div>
+</div>
+<div class="section">
+<input id="fId" placeholder="Roblox ID" />
+<input id="fAmount" placeholder="Kwota" />
+<input id="fPoints" placeholder="Punkty karne" />
+<input id="fReason" placeholder="Powód" />
+<button onclick="addFine()">Mandat</button>
+</div>
 </div>
 
-<!-- KOMENDANT -->
 <div class="card hidden" id="chief">
-  <h2>⭐ Panel Komendanta</h2>
-  <span class="badge gold">Najwyższy dostęp</span>
-
-  <div class="stats">
-    <div class="stat" id="cCit"></div>
-    <div class="stat" id="cFine"></div>
-    <div class="stat" id="cWanted"></div>
-  </div>
-
-  <div class="section">
-    <div id="all" class="list"></div>
-  </div>
+<h2>⭐ Panel Komendanta</h2><span class="badge gold">Najwyższy</span>
+<div class="stats">
+<div class="stat" id="cCit"></div>
+<div class="stat" id="cFine"></div>
+<div class="stat" id="cWanted"></div>
+</div>
+<div class="section"><div id="all" class="list"></div></div>
 </div>
 
 <script>
-const POLICE='POLICJA123';
-const CHIEF='2137zlomus588';
-
+const POLICE='POLICJA123', CHIEF='2137zlomus588';
 const $=id=>document.getElementById(id);
 
-let db = JSON.parse(localStorage.getItem('rpdb')||'{}');
-db.cit = db.cit || {};
-db.fines = db.fines || [];
+let db;
+try{
+  db = JSON.parse(localStorage.getItem('rpdb')) || {};
+}catch{ db = {}; }
 
-function save(){localStorage.setItem('rpdb',JSON.stringify(db));}
+// Twarde inicjalizacje (NAPRAWA BŁĘDU)
+db.cit = db.cit && typeof db.cit === 'object' ? db.cit : {};
+db.fines = Array.isArray(db.fines) ? db.fines : [];
+
+function save(){ localStorage.setItem('rpdb', JSON.stringify(db)); }
 
 function login(){
   $('login').classList.add('hidden');
-  if($('code').value===CHIEF){
-    $('chief').classList.remove('hidden'); renderChief();
-  }else if($('code').value===POLICE){
-    $('police').classList.remove('hidden'); renderPolice();
-  }else{
-    $('citizen').classList.remove('hidden'); renderCitizen();
-  }
+  if($('code').value===CHIEF){ $('chief').classList.remove('hidden'); renderChief(); }
+  else if($('code').value===POLICE){ $('police').classList.remove('hidden'); renderPolice(); }
+  else{ $('citizen').classList.remove('hidden'); renderCitizen(); }
+}
+
+function saveCitizen(){
+  const id = $('loginId').value;
+  if(!id){ alert('Brak Roblox ID'); return; }
+  db.cit[id] = db.cit[id] || { points:0 };
+  db.cit[id].name = $('cName').value;
+  db.cit[id].skin = $('cSkin').value;
+  save(); renderCitizen();
 }
 
 function renderCitizen(){
-  const id=$('loginId').value;
-  const c=db.cit[id];
-  $('citizenData').innerHTML=c
-    ? `<strong>${c.name||'Brak danych'}</strong><br>Punkty karne: ${c.points||0}`
-    : 'Brak danych obywatela';
+  const id = $('loginId').value;
+  const c = db.cit[id];
+  if(!c){ $('citizenData').innerHTML='Brak danych'; return; }
+  const fines = db.fines.filter(f=>f.id===id);
+  $('citizenData').innerHTML = `<strong>${c.name||'Brak imienia'}</strong><br>Punkty: ${c.points||0}`+
+  `${c.skin?`<img class='skin' src='${c.skin}'>`:''}`+
+  `<h4>Mandaty</h4>`+
+  (fines.length?fines.map(f=>`<div class='fine'>${f.amount} zł | ${f.points} pkt<br>${f.reason}</div>`).join(''):'Brak mandatów');
 }
 
 function search(){
-  const id=$('pSearch').value;
-  const c=db.cit[id];
-  $('pResult').innerHTML=c
-    ? `<strong>${c.name||'Brak danych'}</strong><br>Punkty: ${c.points||0}`
-    : 'Nie znaleziono';
+  const id = $('pSearch').value;
+  const c = db.cit[id];
+  if(!c){ $('pResult').innerHTML='Nie znaleziono obywatela'; return; }
+  $('pResult').innerHTML=`<strong>${c.name||'Brak imienia'}</strong><br>Punkty: ${c.points||0}`;
 }
 
 function addFine(){
-  const id=$('fId').value;
-  db.cit[id]=db.cit[id]||{points:0};
-  const pts=Number($('fPoints').value)||0;
-  db.cit[id].points+=pts;
-  db.fines.push({id});
+  const id = $('fId').value;
+  if(!db.cit[id]){ alert('Ten obywatel nie istnieje'); return; }
+  const pts = Number($('fPoints').value)||0;
+  db.fines.push({id,amount:$('fAmount').value,points:pts,reason:$('fReason').value});
+  db.cit[id].points = (db.cit[id].points||0) + pts;
   save(); renderPolice(); alert('Mandat dodany');
 }
 
@@ -269,11 +150,13 @@ function renderPolice(){
 }
 
 function renderChief(){
-  const c=Object.values(db.cit);
-  $('cCit').innerText='Obywatele: '+c.length;
+  const citizens = Object.values(db.cit);
+  $('cCit').innerText='Obywatele: '+citizens.length;
   $('cFine').innerText='Mandaty: '+db.fines.length;
-  $('cWanted').innerText='Poszukiwani (30+ pkt): '+c.filter(x=>(x.points||0)>=30).length;
-  $('all').innerHTML=c.map(x=>`<div>${x.name||'Brak'} – ${x.points||0} pkt</div>`).join('');
+  $('cWanted').innerText='Poszukiwani: '+citizens.filter(c=> (c.points||0) >= 30).length;
+  $('all').innerHTML = citizens.length ? Object.entries(db.cit).map(([id,c])=>
+    `<div class='list'><strong>${c.name||'Brak imienia'}</strong><br>ID: ${id}<br>Punkty: ${c.points||0}${(c.points||0)>=30?' 🔴 POSZUKIWANY':''}</div>`
+  ).join('') : 'Brak obywateli';
 }
 </script>
 </body>
